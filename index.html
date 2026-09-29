@@ -1,11 +1,533 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My website</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Troop 18 - Trail's End Popcorn Fundraiser</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 25px 12px;
+            background: #eeeeee;
+            color: #333333;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+        }
+
+        .flyer {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 35px 42px;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* -------------------------
+           HEADER
+        ------------------------- */
+
+        .header {
+            text-align: center;
+        }
+
+        .main-title {
+            margin: 0;
+            color: #1f4e79;
+            font-family: "Cooper Black", "Arial Black", Georgia, serif;
+            font-size: 48px;
+            line-height: 1.05;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            margin-top: 12px;
+            font-size: 19px;
+            font-weight: bold;
+            color: #555555;
+        }
+
+        .fundraiser-title {
+            margin-top: 8px;
+            margin-bottom: 18px;
+            color: #b87333;
+            font-family: "Cooper Black", "Arial Black", Georgia, serif;
+            font-size: 25px;
+        }
+
+        /* -------------------------
+           PHOTO AREA
+        ------------------------- */
+
+        .photo-placeholder {
+            height: 310px;
+            margin: 15px 0 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: #eeeeee;
+            border: 3px dashed #aaaaaa;
+            color: #666666;
+        }
+
+        .photo-placeholder strong {
+            display: block;
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .photo-placeholder span {
+            font-size: 15px;
+        }
+
+        /*
+        When you are ready to add your camping picture,
+        replace the entire .photo-placeholder section with:
+
+        <img src="camping-photo.jpg"
+             alt="Troop 18 camping"
+             class="camping-photo">
+
+        Then use:
+
+        .camping-photo {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            display: block;
+            margin: 15px 0 22px;
+        }
+        */
+
+        /* -------------------------
+           INTRODUCTION
+        ------------------------- */
+
+        .intro-title {
+            margin: 0;
+            text-align: center;
+            color: #1f4e79;
+            font-size: 24px;
+        }
+
+        .intro-text {
+            max-width: 720px;
+            margin: 7px auto 22px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        /* -------------------------
+           SCOUT LINKS
+        ------------------------- */
+
+        .links-section {
+            padding: 20px;
+            background: #fff2cc;
+            border: 3px solid #d6b656;
+        }
+
+        .links-title {
+            margin: 0;
+            text-align: center;
+            color: #805500;
+            font-family: "Cooper Black", "Arial Black", Georgia, serif;
+            font-size: 27px;
+        }
+
+        .links-description {
+            margin: 6px 0 18px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .scout-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .scout-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 13px 15px;
+
+            background: #ffffff;
+            border: 1px solid #d2d2d2;
+            border-radius: 7px;
+
+            color: #1f4e79;
+            text-decoration: none;
+
+            transition:
+                transform 0.12s ease,
+                box-shadow 0.12s ease,
+                border-color 0.12s ease;
+        }
+
+        .scout-link:hover {
+            transform: translateY(-2px);
+            border-color: #1f4e79;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        }
+
+        .scout-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .shop-text {
+            color: #b87333;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* -------------------------
+           FOOTER
+        ------------------------- */
+
+        .footer {
+            margin-top: 22px;
+            text-align: center;
+        }
+
+        .thank-you {
+            display: block;
+            color: #b87333;
+            font-family: "Cooper Black", "Arial Black", Georgia, serif;
+            font-size: 21px;
+        }
+
+        .footer-message {
+            display: block;
+            margin-top: 3px;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        /* -------------------------
+           MOBILE
+        ------------------------- */
+
+        @media (max-width: 650px) {
+
+            body {
+                padding: 10px 6px;
+            }
+
+            .flyer {
+                padding: 25px 17px;
+            }
+
+            .main-title {
+                font-size: 34px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .fundraiser-title {
+                font-size: 20px;
+            }
+
+            .photo-placeholder {
+                height: 230px;
+            }
+
+            .scout-list {
+                grid-template-columns: 1fr;
+            }
+
+            .scout-link {
+                padding: 14px;
+            }
+        }
+
+        /* -------------------------
+           PRINT
+        ------------------------- */
+
+        @media print {
+
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .flyer {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .scout-link {
+                color: #000000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="flyer">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <h1 class="main-title">
+            SUPPORT OUR SCOUTING TROOP!
+        </h1>
+
+        <div class="tagline">
+            Fuel Adventures. Support Scouts. Enjoy Great Popcorn.
+        </div>
+
+        <div class="fundraiser-title">
+            TROOP 18 TRAIL'S END POPCORN FUNDRAISER
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         CAMPING PHOTO
+    ========================== -->
+
+    <div class="photo-placeholder">
+
+        <div>
+            <strong>
+                YOUR TROOP CAMPING PHOTO GOES HERE
+            </strong>
+
+            <span>
+                Replace this box with a great photo from a Troop camping adventure.
+            </span>
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         INTRODUCTION
+    ========================== -->
+
+    <section>
+
+        <h2 class="intro-title">
+            Help our Scouts reach new adventures!
+        </h2>
+
+        <p class="intro-text">
+            Your popcorn purchase helps support Troop activities,
+            camping trips, training, equipment, and unforgettable
+            Scouting experiences.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         SCOUT LINKS
+    ========================== -->
+
+    <section class="links-section">
+
+        <h2 class="links-title">
+            CHOOSE ONE LINK BELOW
+        </h2>
+
+        <p class="links-description">
+            Click a Scout's link to shop and support that Scout.
+        </p>
+
+
+        <div class="scout-list">
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/E4CNEP1V"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Sean McVey
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/5YSXB58W"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Benjamin Abraham
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/H4EF09YL"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Noraa Abraham
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/YJAP2HA7"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Alwin Alexander
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/MCB1GIB3"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Adrian Hamza
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/JDOQPQ0T"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Jaiden Joemon
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/89RP8WSM"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Elvin Mathew
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/Z9Z7LK7W"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Obadiah Mathew
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+
+            <a
+                class="scout-link"
+                href="https://trails-end.com/store/scout/I1QD4G85"
+                target="_blank"
+                rel="noopener"
+            >
+                <span class="scout-name">
+                    Albion Siji
+                </span>
+
+                <span class="shop-text">
+                    Shop &amp; Support →
+                </span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <span class="thank-you">
+            THANK YOU FOR SUPPORTING OUR SCOUTS!
+        </span>
+
+        <span class="footer-message">
+            Every purchase helps our Troop continue the adventure.
+        </span>
+
+    </footer>
+
+</div>
+
+</body>
 </html>
